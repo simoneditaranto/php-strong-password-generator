@@ -7,30 +7,10 @@
     // input dell'utente
     $password_lenght = $_GET['input-password'];
 
-    // funzione per generare una password casuale
-    function getRandomPassword($lenght) {
-        $password = "";
-        
-        // stringa di caratteri da cui prendo la mia password
-        $password_string = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()";
-
-        for($i = 0; $i < $lenght; $i++) {
-            // genero un numero casuale da 0 a $password_string.lenght
-            $rand = rand(0, (strlen($password_string) - 1));
-            
-            $password .= $password_string[$rand];
-        }
-
-        return $password;
-        
-    }
-
-
-
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 
     <meta charset="UTF-8">
@@ -53,19 +33,12 @@
                 <input type="number" min="0" class="form-control" id="input-password" name="input-password">
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Genera la tua password</button>
         </form>
 
-        <div class="password">
-            <span>La tua password è:</span>
-            <div class="col-12 overflow-x-auto">
-                <?php
-                    $random_password = getRandomPassword($password_lenght);
-
-                    echo $random_password;
-                ?>
-            </div>
-        </div>
+        <?php
+            include "./functions.php";
+        ?>
 
     </div>
     
