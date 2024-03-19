@@ -33,6 +33,21 @@
                 <input type="number" min="0" class="form-control" id="input-password" name="input-password">
             </div>
 
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="only-number" name="only-number" value="true">
+                <label class="form-check-label" for="only-number">Password con numeri</label>
+            </div>
+
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="only-characters" name="only-characters" value="true">
+                <label class="form-check-label" for="only-characters">Password con lettere</label>
+            </div>
+
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="only-symbols" name="only-symbols" value="true">
+                <label class="form-check-label" for="only-symbols">Password con simboli</label>
+            </div>
+
             <button type="submit" class="btn btn-primary">Genera la tua password</button>
         </form>
 
