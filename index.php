@@ -4,8 +4,23 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-    // input dell'utente
-    $password_lenght = $_GET['input-password'];
+    include "./functions.php";
+
+    if(isset($_GET['input-password']) && $_GET['input-password'] != ' ') {
+        // input dell'utente
+        $password_lenght = $_GET['input-password'];
+
+        $random_password = getRandomPassword($password_lenght);
+        // echo $random_password;
+
+        session_start();
+
+        $_SESSION['password'] = $random_password;
+        
+        header('Location: new-password.php');
+
+    }
+
 
 ?>
 
@@ -27,7 +42,7 @@
     <div class="container">
         <h1>Password generator</h1>
 
-        <form for="index.php">
+        <form>
             <div class="mb-3">
                 <label for="input-password" class="form-label">Inserisci la lunghezza della password</label>
                 <input type="number" min="0" class="form-control" id="input-password" name="input-password">
@@ -50,10 +65,6 @@
 
             <button type="submit" class="btn btn-primary">Genera la tua password</button>
         </form>
-
-        <?php
-            include "./functions.php";
-        ?>
 
     </div>
     
